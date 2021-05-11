@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/mobilestyle.css">
+  <link rel="stylesheet" href="css/desktopstyles.css">
+  <script src="https://kit.fontawesome.com/a2c4d65c9a.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="left-navbar">
+      <img src="images/logo.svg" alt="Our Logo">
+      <div class="additional-left-navbar">
+        <a class="left-navigation-link" href="#">Features</a>
+        <a class="left-navigation-link" href="#">Pricing</a>
+        <a class="left-navigation-link" href="#">Resources</a>
+      </div>
+    </div>
+    <div class="right-navbar">
+      <i class="fas fa-bars hamburger-icon"></i>
+      <i class="fas fa-times cross-icon notshowed"></i>
+      <div class="additional-right-navbar">
+        <a class="right-navigation-link" href="#">Login</a>
+        <button type="button" name="button">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!--navigation bar-->
+
+
+  <!--first page-->
+  <div class="first-page">
+    <div class="additional-menu notshowed">
+      <div class="additional-menu-link">
+        <a class="additional-link" href="#">Features</a>
+        <a class="additional-link" href="#">Pricing</a>
+        <a class="additional-link border-bottom" href="#">Resources</a>
+        <a class="additional-link" href="#">Login</a>
+      </div>
+      <button type="button" name="button">Sign Up</button>
+    </div>
+    <div class="left-first-page">
+      <h1>More than just shorter links</h1>
+      <p>Build your brand’s recognition and get detailed insights
+        on how your links are performing.</p>
+      <button class="get-started-first-page" type="button" name="button">Get Started</button>
+    </div>
+
+    <div class="right-first-page">
+      <img class="first-page-image" src="images/illustration-working.svg" alt="working image">
+    </div>
+  </div>
+  <!--first page-->
+
+  <!--addition menu-->
+
+  <!--additional menu-->
+
+  <div class="second-page">
+    <form class="shorten-page" action="/" method="post">
+      <input type="text" name="linkObject" placeholder="Shorten a link here...">
+      <button type="submit" name="button">Shorten it!</button>
+    </form>
+    <!--adding div-->
+    <!--under development-->
+    <!--adding div-->
+  </div>
+
+  <!--link properties-->
+  <div class="link-shortened">
+    <div class="link-properties">
+      <div class="link-properties-left">
+        <a class="original-link-properties" href= <%= original1 %> ><%= original1 %></a>
+      </div>
+      <div class="link-properties-right">
+        <a class="shortened-link-properties" href= <%= short1 %> ><%= short1 %></a>
+        <button class="copy-button" type="button" name="button">Copy</button>
+      </div>
+
+    </div>
+  </div>
+  <!--link propeties-->
+
+  <div class="third-page">
+    <div class="third-page-title">
+      <h1>Advanced Statistics</h1>
+      <p>Track how your links are performing across the web with our
+        advanced statistics dashboard.</p>
+    </div>
+
+    <div class="advantages">
+      <div class="advantages1">
+        <img class="advantages-logo top" src="images/icon-brand-recognition.svg" alt="Diagram">
+        <h3>Brand Recognition</h3>
+        <p>Boost your brand recognition with each click. Generic links don’t
+          mean a thing. Branded links help instil confidence in your content.</p>
+      </div>
+
+      <div class="advantages2">
+        <img class="advantages-logo middle" src="images/icon-detailed-records.svg" alt="stable">
+        <h3>Detailed Records</h3>
+        <p>Gain insights into who is clicking your links. Knowing when and where
+          people engage with your content helps inform better decisions.</p>
+      </div>
+
+      <div class="advantages3">
+        <img class="advantages-logo bottom" src="images/icon-fully-customizable.svg" alt="Customizable">
+        <h3>Fully Customizable</h3>
+        <p>Improve brand awareness and content discoverability through customizable
+          links, supercharging audience engagement.</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="fourth-page">
+    <h1>Boost your links today</h1>
+    <button type="button" name="button">Get Started</button>
+  </div>
+
+
+  <div class="fifth-page">
+    <div class="section1">
+      <img src="images/logo.svg" alt="Our logo">
+    </div>
+
+    <div class="section2">
+      <div class="link-list1">
+        <span class="section-header">Features</span>
+        <a class="section-link" href="#">Link Shortening</a>
+        <a class="section-link" href="#">Branded Links</a>
+        <a class="section-link" href="#">Analytics</a>
+      </div>
+
+      <div class="link-list2">
+        <span class="section-header">Resources</span>
+        <a class="section-link" href="#">Blog</a>
+        <a class="section-link" href="#">Developers</a>
+        <a class="section-link" href="#">Support</a>
+      </div>
+
+      <div class="link-list3">
+        <span class="section-header">Company</span>
+        <a class="section-link" href="#">About</a>
+        <a class="section-link" href="#">Our Team</a>
+        <a class="section-link" href="#">Careers</a>
+        <a class="section-link" href="#">Contact</a>
+      </div>
+
+    </div>
+
+    <div class="section3">
+      <i class="social-logo fab fa-facebook-square fa-2x"></i>
+      <i class="social-logo fab fa-twitter fa-2x"></i>
+      <i class="social-logo fab fa-pinterest fa-2x"></i>
+      <i class="social-logo fab fa-instagram fa-2x"></i>
+    </div>
+  </div>
+
+  <script src="index.js" type="text/javascript"></script>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>

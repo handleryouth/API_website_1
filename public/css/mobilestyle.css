@@ -1,0 +1,250 @@
+/*mobile version*/
+body{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+button[type="button"]{
+  background-color:hsl(180, 66%, 49%);
+  border: 0;
+  border-radius:50px;
+  padding: 1rem 3rem;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  cursor: pointer;
+}
+
+button[type="button"]:hover{
+  opacity: 0.8;
+}
+
+
+.notshowed{
+  display:none;
+  visibility: hidden;
+}
+
+.showed{
+  display:block;
+  visibility: visible;
+}
+
+
+/*navigation bar*/
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+
+.additional-left-navbar, .additional-right-navbar{
+  display: none;
+  visibility: hidden;
+}
+/*navigation bar*/
+
+/*additionl navigation bar*/
+.additional-menu, .additional-menu-link{
+  display: flex;
+  flex-direction: column;
+}
+
+.additional-menu{
+  padding: 2rem 4rem 2rem 4rem;
+  background-color: hsl(257, 27%, 26%);
+  border-radius: 5px;
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 1rem;
+}
+
+.additional-menu-link{
+  text-align: center;
+}
+
+.additional-link{
+  text-decoration: none;
+  margin: 1.3rem 0;
+  color:white;
+}
+
+.border-bottom{
+  padding-bottom:2rem;
+  border-bottom: 1px solid
+}
+/*additional navigation bar*/
+
+
+/*first page*/
+.first-page{
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.first-page-image{
+  width: 100%;
+}
+/*first page*/
+
+
+/*second page*/
+.second-page{
+background-color: hsl(257, 27%, 26%);
+padding:3rem 0;
+}
+
+input[type="text"], button[type="submit"]{
+  display:block;
+  margin:1rem auto;
+  height: 3rem;
+  width:63%
+}
+
+input[type="text"]{
+  padding: 0 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+button[type="submit"]{
+  background-color:hsl(180, 66%, 49%);
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+/*second page*/
+
+
+
+/*link properties*/
+.link-shortened{
+  background-color:lightgray;
+  padding: 2rem 0;
+}
+
+
+.link-properties{
+  background-color: white;
+  margin: 0 auto;
+  padding: 2rem 0;
+  text-align:center;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.original-link-properties, .shortened-link-properties{
+  display: block;
+  padding: 1rem 0;
+  margin: 0 auto;
+  text-decoration: none;
+  color:black;
+  width:70%;
+}
+
+.original-link-properties{
+  border-bottom: 1px solid;
+}
+
+.shortened-link-properties{
+  color: hsl(180, 66%, 49%);
+}
+
+.copy-button{
+  display:block;
+  margin:0 auto;
+}
+/*link properties*/
+
+
+/*third page*/
+.third-page{
+  text-align: center;
+  background-color:lightgray;
+  padding: 3rem 0;
+}
+
+.advantages1, .advantages2{
+  margin: 5rem 0.8rem;
+  background-color:white;
+  padding-bottom: 3rem;
+  border-radius: 5px;
+}
+
+
+.advantages3{
+  margin: 5rem 0.8rem 0 0.8rem;
+  background-color:white;
+  padding-bottom: 3rem;
+  border-radius: 5px;
+}
+
+.advantages-logo{
+  position: relative;
+  bottom: 2.5rem;
+  background-color: hsl(257, 27%, 26%);
+  border-radius: 50%;
+  width:4.5rem;
+}
+/*third page*/
+
+
+/*fourth page*/
+.fourth-page{
+  text-align: center;
+  background-color: hsl(257, 27%, 26%);
+  padding:4rem 0;
+  color: white;
+}
+/*fourth page*/
+
+
+
+/*fifth page*/
+.fifth-page{
+  background-color: black;
+  color: white;
+  padding:2rem 0;
+}
+
+.fifth-page, .section2, .section3{
+  display: flex;
+  text-align: center;
+}
+
+.fifth-page,.section2{
+  flex-direction: column;
+}
+
+.link-list1, .link-list2, .link-list3{
+  margin: 1rem 0;
+}
+
+.section-header{
+  font-weight: 700;
+}
+
+.section-link{
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin: 0.8rem 0;
+}
+
+.section3{
+  margin:1rem auto;
+}
+
+.social-logo{
+  margin:0 0.5rem;
+}
+/*fifth page*/

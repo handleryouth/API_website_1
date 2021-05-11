@@ -1,0 +1,139 @@
+@media (min-width:1440px) {
+
+  /*navigation bar*/
+  .hamburger-icon, .cross-icon, .additional-menu {
+    display: none;
+    visibility: hidden;
+  }
+
+  .left-navbar {
+    display: flex;
+    flex-basis: 30rem;
+    align-items: center;
+  }
+
+  .additional-left-navbar {
+    margin-left: 1rem;
+  }
+
+  .additional-left-navbar, .additional-right-navbar {
+    display: block;
+    visibility: visible;
+  }
+
+  .left-navigation-link {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+  }
+
+  .right-navigation-link {
+    margin-right: 2rem;
+    text-decoration: none;
+    color: black;
+  }
+
+  /*navigation bar*/
+  /*first page*/
+  .first-page {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .left-first-page {
+    margin: 0 3rem;
+  }
+
+  /*first page*/
+  /*second page*/
+  .second-page{
+    text-align: center;
+  }
+  input[type="text"] {
+    width: 50%;
+  }
+
+  button[type="submit"] {
+    width: 15%;
+  }
+
+  input[type="text"], button[type="submit"] {
+    margin: 0;
+    display: inline-block;
+  }
+
+  /*second page*/
+
+/*link properties*/
+.link-properties{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.original-link-properties, .shortened-link-properties{
+  width:100%;
+}
+
+.original-link-properties{
+  margin-left: 2rem;
+}
+
+.shortened-link-properties{
+  margin-right: 2rem;
+}
+
+.link-properties-right{
+  display: flex;
+}
+
+.original-link-properties{
+  border-bottom: none
+}
+
+.copy-button{
+  margin-right: 2rem;
+}
+
+/*link properties*/
+
+
+
+  /*third page*/
+  .advantages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .advantages1, .advantages2, .advantages3 {
+    width: 100%;
+    max-width: 30rem;
+    height: 23rem;
+  }
+
+  /*third page*/
+  /*fifth page*/
+  .fifth-page {
+    justify-content: space-around;
+  }
+
+  .fifth-page, .section2 {
+    flex-direction: row;
+  }
+
+  .section2 {
+    text-align: left;
+  }
+
+  .link-list1, .link-list2, .link-list3 {
+    margin: 0 4rem;
+  }
+
+  .section3 {
+    margin: 0;
+  }
+
+  /*fifth page*/
+}
