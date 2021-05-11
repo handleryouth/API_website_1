@@ -27,7 +27,9 @@ app.post('/', function(req, res) {
           response.on("data", function(data) {
             const linkData = JSON.parse(data);
             const shortenLink = linkData.result.short_link;
-            res.render("index1", {short1: shortenLink, original1: targetLink});
+            const completeShortenLink = "http://"+shortenLink;
+            const completeTargetLink = "http://"+targetLink;
+            res.render("index1", {short1: completeShortenLink, original1: completeTargetLink});
           });
 
   });
