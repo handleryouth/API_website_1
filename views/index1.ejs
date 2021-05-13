@@ -91,13 +91,14 @@
   <!--link properties-->
 
   <% for(i = 0; i < originallink.length; i++){ %>
+
     <div class="link-shortened">
       <div class="link-properties">
         <div class="link-properties-left">
-          <a class="original-link-properties" href= <%= originallink[i] %> ><%= originallink[i] %></a>
+          <a class="original-link-properties" href= "http://<%= originallink[i] %>" ><%= originallink[i] %></a>
         </div>
         <div class="link-properties-right">
-          <a class="shortened-link-properties" href= <%= shortlink[i] %> ><%= shortlink[i] %></a>
+          <a class="shortened-link-properties" href= "http://<%= shortlink[i] %>" ><%= shortlink[i] %></a>
           <button class="copy-button" type="button" name="button">Copy</button>
         </div>
 

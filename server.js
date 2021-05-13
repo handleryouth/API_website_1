@@ -28,8 +28,6 @@ app.post('/', function(req, res) {
   var targetLink = req.body.linkObject;
   const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
   https.get(url, function(response) {
-    console.log(response.statusCode);
-
     response.on("data", function(data, error) {
       try {
         const linkData = JSON.parse(data);
