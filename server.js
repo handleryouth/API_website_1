@@ -19,13 +19,12 @@ app.set('view engine', 'ejs');
 app.engine('html', require("ejs").renderFile);
 
 app.get("/", function(req, res) {
+  listShortenLinks.splice(0, listShortenLinks.length);
+  listOriginalLinks.splice(0, listOriginalLinks.length);
   res.sendFile(__dirname + "/index.html");
-  var listShortenLinks = [];
-  var listOriginalLinks = [];
 });
 
 app.post('/', function(req, res) {
-
   const targetLink = req.body.linkObject;
   const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
   https.get(url, function(response) {
@@ -35,14 +34,23 @@ app.post('/', function(req, res) {
       const linkData = JSON.parse(data);
       try {
         const completeTargetLink = "http://" + targetLink;
-        listOriginalLinks.push(completeTargetLink);
-        const shortenLink = linkData.result.short_link;
-        const completeShortenLink = "http://" + shortenLink;
-        listShortenLinks.push(completeShortenLink);
-        res.render("index1", {
-          shortlink: listShortenLinks,
-          originallink: listOriginalLinks
-        });
+        if (completeTargetLink !== listOriginalLinks[(listOriginalLinks.length - 1)]){
+          listOriginalLinks.push(completeTargetLink);
+          const shortenLink = linkData.result.short_link;
+          const completeShortenLink = "http://" + shortenLink;
+          listShortenLinks.push(completeShortenLink);
+          res.render("index1", {
+            shortlink: listShortenLinks,
+            originallink: listOriginalLinks
+          });
+        }
+
+        else{
+          res.render("index1", {
+            shortlink: listShortenLinks,
+            originallink: listOriginalLinks
+          });
+        }
       } catch (e) {
         listShortenLinks.push(errorMessage);
         res.render("index1", {
