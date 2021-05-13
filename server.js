@@ -25,45 +25,54 @@ app.get("/", function(req, res) {
 });
 
 app.post('/', function(req, res) {
-  const targetLink = req.body.linkObject;
+  var targetLink = req.body.linkObject;
   const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
   https.get(url, function(response) {
     console.log(response.statusCode);
 
     response.on("data", function(data, error) {
-      const linkData = JSON.parse(data);
       try {
-        const completeTargetLink = "http://" + targetLink;
-        if (completeTargetLink !== listOriginalLinks[(listOriginalLinks.length - 1)]){
-          listOriginalLinks.push(completeTargetLink);
-          const shortenLink = linkData.result.short_link;
-          const completeShortenLink = "http://" + shortenLink;
-          listShortenLinks.push(completeShortenLink);
-          res.render("index1", {
-            shortlink: listShortenLinks,
-            originallink: listOriginalLinks
-          });
-        }
+        const linkData = JSON.parse(data);
+        linkData.toString().replace('/', '');
+        try {
+          var completeTargetLink = targetLink;
+          if (completeTargetLink !== listOriginalLinks[(listOriginalLinks.length - 1)]) {
+            if (completeTargetLink.length > 25) {
+              completeTargetLink = completeTargetLink.substring(0, 50) + "...";
+            }
+            listOriginalLinks.push(completeTargetLink);
+            const shortenLink = linkData.result.short_link;
+            var completeShortenLink = shortenLink;
 
-        else{
-          res.render("index1", {
-            shortlink: listShortenLinks,
-            originallink: listOriginalLinks
-          });
+            listShortenLinks.push(completeShortenLink);
+            res.render("index1", {
+              shortlink: listShortenLinks,
+              originallink: listOriginalLinks
+            });
+          } else {
+            res.render("index1", {
+              shortlink: listShortenLinks,
+              originallink: listOriginalLinks
+            });
+          }
+        } catch (e) {
+          listShortenLinks.push(errorMessage);
+
         }
       } catch (e) {
-        listShortenLinks.push(errorMessage);
+        if (targetLink.length > 25) {
+          targetLink = targetLink.substring(0, 50) + "...";
+        }
+        listOriginalLinks.push(targetLink);
+        listShortenLinks.push("the link cannot be shorten");
         res.render("index1", {
           shortlink: listShortenLinks,
           originallink: listOriginalLinks
         });
       }
-
     });
 
   });
-
-
 });
 
 app.listen(process.env.PORT || 3000, function() {
