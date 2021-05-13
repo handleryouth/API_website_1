@@ -20,6 +20,8 @@ app.engine('html', require("ejs").renderFile);
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
+  var listShortenLinks = [];
+  var listOriginalLinks = [];
 });
 
 app.post('/', function(req, res) {
