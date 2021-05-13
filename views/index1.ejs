@@ -89,18 +89,22 @@
   </div>
 
   <!--link properties-->
-  <div class="link-shortened">
-    <div class="link-properties">
-      <div class="link-properties-left">
-        <a class="original-link-properties" href= <%= original1 %> ><%= original1 %></a>
-      </div>
-      <div class="link-properties-right">
-        <a class="shortened-link-properties" href= <%= short1 %> ><%= short1 %></a>
-        <button class="copy-button" type="button" name="button">Copy</button>
-      </div>
 
+  <% for(i = 0; i < originallink.length; i++){ %>
+    <div class="link-shortened">
+      <div class="link-properties">
+        <div class="link-properties-left">
+          <a class="original-link-properties" href= <%= originallink[i] %> ><%= originallink[i] %></a>
+        </div>
+        <div class="link-properties-right">
+          <a class="shortened-link-properties" href= <%= shortlink[i] %> ><%= shortlink[i] %></a>
+          <button class="copy-button" type="button" name="button">Copy</button>
+        </div>
+
+      </div>
     </div>
-  </div>
+  <% } %>
+
   <!--link propeties-->
 
   <div class="third-page">

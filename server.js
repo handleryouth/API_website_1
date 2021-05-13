@@ -3,7 +3,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const https = require("https");
+let alert = require('alert');
 
+
+var listShortenLinks = [];
+var listOriginalLinks = [];
+errorMessage = "opps, blacklist domain! Try other link";
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -19,18 +24,32 @@ app.get("/", function(req, res) {
 
 app.post('/', function(req, res) {
 
-      const targetLink = req.body.linkObject;
-      const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
-      https.get(url, function(response) {
-        console.log(response.statusCode);
+  const targetLink = req.body.linkObject;
+  const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
+  https.get(url, function(response) {
+    console.log(response.statusCode);
 
-          response.on("data", function(data) {
-            const linkData = JSON.parse(data);
-            const shortenLink = linkData.result.short_link;
-            const completeShortenLink = "http://"+shortenLink;
-            const completeTargetLink = "http://"+targetLink;
-            res.render("index1", {short1: completeShortenLink, original1: completeTargetLink});
-          });
+    response.on("data", function(data, error) {
+      const linkData = JSON.parse(data);
+      try {
+        const completeTargetLink = "http://" + targetLink;
+        listOriginalLinks.push(completeTargetLink);
+        const shortenLink = linkData.result.short_link;
+        const completeShortenLink = "http://" + shortenLink;
+        listShortenLinks.push(completeShortenLink);
+        res.render("index1", {
+          shortlink: listShortenLinks,
+          originallink: listOriginalLinks
+        });
+      } catch (e) {
+        listShortenLinks.push(errorMessage);
+        res.render("index1", {
+          shortlink: listShortenLinks,
+          originallink: listOriginalLinks
+        });
+      }
+
+    });
 
   });
 
