@@ -20,18 +20,24 @@ app.set('view engine', 'ejs');
 app.engine('html', require("ejs").renderFile);
 
 app.get("/", function(req, res) {
+  listShortenLinks.splice(0, listShortenLinks.length);
+  listOriginalLinks.splice(0, listOriginalLinks.length);
+  listTargetLinks.splice(0, listTargetLinks.length);
   res.sendFile(__dirname + "/index.html");
 });
 
 app.post('/', function(req, res) {
   var targetLink = req.body.linkObject;
-  if(targetLink === listTargetLinks[listTargetLinks.length - 1]){
+  if (targetLink.includes("https://") === false || targetLink.includes("http://") === false) {
+    targetLink = "http://" + targetLink;
+  }
+  if (targetLink === listTargetLinks[listTargetLinks.length - 1]) {
     res.render("index1", {
       shortlink: listShortenLinks,
-      originallink: listOriginalLinks
+      originallink: listTargetLinks,
+      conciselink: listOriginalLinks
     });
-  }
-  else{
+  } else {
     listTargetLinks.push(targetLink);
     const url = "https://api.shrtco.de/v2/shorten?url=" + targetLink;
     https.get(url, function(response) {
@@ -52,12 +58,14 @@ app.post('/', function(req, res) {
               listShortenLinks.push(completeShortenLink);
               res.render("index1", {
                 shortlink: listShortenLinks,
-                originallink: listOriginalLinks
+                originallink: listTargetLinks,
+                conciselink: listOriginalLinks
               });
             } else {
               res.render("index1", {
                 shortlink: listShortenLinks,
-                originallink: listOriginalLinks
+                originallink: listTargetLinks,
+                conciselink: listOriginalLinks
               });
             }
           } catch (e) {
@@ -72,7 +80,8 @@ app.post('/', function(req, res) {
           listShortenLinks.push("the link cannot be shorten");
           res.render("index1", {
             shortlink: listShortenLinks,
-            originallink: listOriginalLinks
+            originallink: listTargetLinks,
+            conciselink: listOriginalLinks
           });
         }
       });
