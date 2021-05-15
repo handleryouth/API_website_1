@@ -27,7 +27,7 @@ app.get("/", function(req, res) {
 });
 
 app.post('/', function(req, res) {
-  var targetLink = req.body.linkObject;
+  var targetLink = req.body.linkObject.replace("https://", "").replace("http://", "");
   if (targetLink.includes("https://") === false || targetLink.includes("http://") === false) {
     targetLink = "http://" + targetLink;
   }
